@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "publisher-tg"
+version = "0.1.0"
+description = ""
+authors = ["alex <me@fomin3.ru>"]
+readme = "README.md"
+packages = [{include = "publisher_tg"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aio-pika = "^8.3.0"
+Telethon = "^1.26.1"
+asyncio = "^3.4.3"
+loguru = "^0.6.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

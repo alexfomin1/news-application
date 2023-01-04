@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "news-application"
+version = "0.1.0"
+description = "News application with python, asyncio, telegram and etc"
+authors = ["alex <me@fomin3.ru>"]
+readme = "README.md"
+packages = [{include = "news_application"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+backend = {path = "./backend/", develop = true}
+parser_tg = {path = "./parser_tg/"}
+parser_rss = {path = "./parser_rss/"}
+publisher_tg = {path = "./publisher_tg/"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

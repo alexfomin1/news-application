@@ -1,0 +1,62 @@
+[[package]]
+name = "backend"
+version = "0.1.0"
+description = ""
+category = "main"
+optional = false
+python-versions = "^3.10"
+develop = false
+
+[package.source]
+type = "directory"
+url = "backend"
+
+[[package]]
+name = "parser-rss"
+version = "0.1.0"
+description = ""
+category = "main"
+optional = false
+python-versions = "^3.10"
+develop = false
+
+[package.source]
+type = "directory"
+url = "parser_rss"
+
+[[package]]
+name = "parser-tg"
+version = "0.1.0"
+description = ""
+category = "main"
+optional = false
+python-versions = "^3.10"
+develop = false
+
+[package.source]
+type = "directory"
+url = "parser_tg"
+
+[[package]]
+name = "publisher-tg"
+version = "0.1.0"
+description = ""
+category = "main"
+optional = false
+python-versions = "^3.10"
+develop = false
+
+[package.source]
+type = "directory"
+url = "publisher_tg"
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.10"
+content-hash = "d0b6a69f2ff6207ed7fc7833b046045684376e26cd8c930c93398118e3907cc1"
+
+[metadata.files]
+backend = []
+parser-rss = []
+parser-tg = []
+publisher-tg = []

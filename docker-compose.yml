@@ -1,0 +1,62 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: guest
+      POSTGRES_DB: news
+      POSTGRES_DEFAULT_EMAIL: me@fomin3.ru
+    ports:
+      - "5432:5432"
+  redis:
+    image: redis:7.0
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+  rabbitmq:
+    image: rabbitmq:3.11.3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  db_viewer:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - '80:80'
+    environment:
+      PGADMIN_DEFAULT_EMAIL: me@fomin3.ru
+      PGADMIN_DEFAULT_PASSWORD: password
+    depends_on:
+      - "postgres"
+  publisher_tg:
+    container_name: publisher_tg_container
+    restart: on-failure
+    build: ./publisher_tg/
+    depends_on:
+      - "postgres"
+      - "redis"
+      - "rabbitmq"
+  parser_rss:
+    container_name: parser_rss_container
+    restart: on-failure
+    build: ./parser_rss/
+    depends_on:
+      - "postgres"
+      - "redis"
+      - "rabbitmq"
+  backend:
+    container_name: backend_container
+    restart: on-failure
+    build: ./backend/
+    ports:
+      - "8000:8000"
+    depends_on:
+      - "postgres"
+

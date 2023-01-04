@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "parser-tg"
+version = "0.1.0"
+description = ""
+authors = ["alex <me@fomin3.ru>"]
+readme = "README.md"
+packages = [{include = "parser_tg"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+asyncio = "^3.4.3"
+Telethon = "^1.26.1"
+pydantic = "^1.10.2"
+loguru = "^0.6.0"
+aio-pika = "^8.3.0"
+tortoise-orm = {extras = ["asyncpg"], version = "^0.19.2"}
+aioredis = "^2.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
